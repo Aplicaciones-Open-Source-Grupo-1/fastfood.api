@@ -22,12 +22,16 @@ public class RecipeServiceImpl implements RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
 
-    @Autowired
-    private Validator validator;
+    //@Autowired
+   //private final Validator validator;
 
-    public RecipeServiceImpl(RecipeRepository _recipeRepository, Validator _validator) {
+    /*public RecipeServiceImpl(RecipeRepository _recipeRepository, Validator _validator) {
         this.recipeRepository = _recipeRepository;
         this.validator = _validator;
+    }*/
+
+    public RecipeServiceImpl(RecipeRepository _recipeRepository) {
+        this.recipeRepository = _recipeRepository;
     }
 
     @Override
@@ -43,20 +47,22 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Recipe save(Recipe recipe) {
-        Set<ConstraintViolation<Recipe>> violations = validator.validate(recipe);
-        if(!violations.isEmpty()) {
-            throw new ResourceValidationException(ENTITY, violations);
-        }
+       //Set<ConstraintViolation<Recipe>> violations = validator.validate(recipe);
+        //if(!violations.isEmpty()) {
+         //   throw new ResourceValidationException(ENTITY, violations);
+        //}
         return recipeRepository.save(recipe);
+
     }
 
     @Override
-    public Recipe update(Recipe recipe) {
-        Set<ConstraintViolation<Recipe>> violations = validator.validate(recipe);
+    public Recipe update(Integer id, Recipe recipe) {
+        /*Set<ConstraintViolation<Recipe>> violations = validator.validate(recipe);
         if(!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);
         }
-        return recipeRepository.save(recipe);
+        return recipeRepository.save(recipe);*/
+        return null;
     }
 
     @Override

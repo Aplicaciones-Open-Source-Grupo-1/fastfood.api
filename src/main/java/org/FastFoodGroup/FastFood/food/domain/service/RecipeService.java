@@ -5,7 +5,7 @@ public interface RecipeService {
 List<Recipe> fetchAll();
 Recipe fetchByID(Integer id);
 Recipe save(Recipe recipe);
-Recipe update(Recipe recipe);
+Recipe update(Integer id,Recipe recipe);
 boolean deleteById(Integer id);
 
 }

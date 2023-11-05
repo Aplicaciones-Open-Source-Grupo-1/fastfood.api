@@ -14,15 +14,7 @@ public class OpenApiConfiguration {
     public OpenAPI customOpenApi(
             @Value("${documentation.application.description}") String applicationDescription,
             @Value("${documentation.application.version}") String applicationVersion) {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("Medmeet API")
-                        .version(applicationVersion)
-                        .description(applicationDescription)
-                        .termsOfService("https://medmeet.netlify.app/service-terms.html")
-                        .license(new License().name("Apache 2.0 License").url("https://medmeet.netlify.app/"))
-                        .contact(new Contact()
-                                .url("https://medmeet.netlify.app/")
-                                .name("Medmeet")));
+        return new OpenAPI();
+
     }
 }
